@@ -1,0 +1,12 @@
+streamlit
+streamlit-authenticator
+streamlit-extras
+deta
+streamlit-lottie
+datetime
+random
+matplotlib.pyplot
+numpy
+PIL
+io
+requests
