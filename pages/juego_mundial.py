@@ -35,10 +35,6 @@ footer = """
 """
 st.markdown(footer, unsafe_allow_html=True)
 
-# Título de la aplicación
-st.title("Reconoce El jugador por su foto")
-
-# Instrucciones del juego
 # Lista de equipos que participaron en el Mundial 2022
 equipos = [
     "Qatar", "Alemania", "Dinamarca", "Brasil", "Bélgica", "Francia",
@@ -54,6 +50,13 @@ fases = ["Octavos de final", "Cuartos de final", "Semifinales", "Final"]
 
 # Función para calcular resultados
 def calcular_resultados():
+    """
+    Simula los resultados de un torneo de eliminación directa,
+    mostrando los enfrentamientos y ganadores en cada fase.
+
+    Returns:
+        str: El nombre del equipo ganador del torneo.
+    """
     ganador = None
     equipos_fase_actual = equipos.copy()
 
