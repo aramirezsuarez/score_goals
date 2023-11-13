@@ -3,9 +3,3 @@ streamlit-authenticator
 streamlit-extras
 deta
 streamlit-lottie
-numpy
-PIL
-io
-requests
-random
-matplotlib.pyplot
