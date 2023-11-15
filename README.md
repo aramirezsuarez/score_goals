@@ -36,4 +36,5 @@ Score Goals es una aplicación que proporciona información detallada sobre enfr
 
 
 ## Licencia
+[GNU GPL V3](https://www.gnu.org/licenses/gpl-3.0.html)
 
