@@ -28,6 +28,10 @@ Score Goals es una aplicación que proporciona información detallada sobre enfr
 
 4. **Detalle del Jugador**
    - Ingresa el nombre del jugador para obtener información detallada sobre él.
+  
+## Limnk de la aplicación
+
+[Score_Goals](https://scoregoals-dfj7duconampzhcfg5wpdv.streamlit.app/)
 
 ## Requisitos
 
