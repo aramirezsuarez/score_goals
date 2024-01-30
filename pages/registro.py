@@ -43,8 +43,6 @@ def fetch_usuarios():
     users = db.fetch()
     return users.items
 
-users = db.users.find({},{"key": 1})
-print(users)
 
 # Funcion que retorna los emails de los usuarios registrados
 def get_emails_usuarios():
@@ -54,21 +52,25 @@ def get_emails_usuarios():
 
     Returns:
     - list: Una lista que contiene los correos electrónicos de cada usuario.
-
     """
     # Guardar los datos de la Base de Datos en 'users'
-    users = db.users.find({},{"key": 1})
-    print(users)
-
+    users = db.users.find({}, {"key": 1})
+    
     # Inicializar una lista para almacenar los correos electrónicos
     emails = []
 
     # Filtrar los correos electrónicos del diccionario de usuarios y
     # agregarlos a la lista
-    for user in users.items:
+    for user in users:
         emails.append(user["key"])
 
+    # Imprimir los correos electrónicos
+    print("Correos Electrónicos de Usuarios:", emails)
+
     return emails
+
+# Llamar a la función para imprimir los correos electrónicos
+get_emails_usuarios()
 
 # Funcion que retorna los nombres de usuario de los usuarios registrados
 def get_usernames_usuarios():
