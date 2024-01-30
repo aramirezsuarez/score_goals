@@ -1,5 +1,4 @@
 # Pagina de inicio de sesion
-
 # Importar librerias necesarias
 import streamlit as st
 import streamlit_extras
@@ -9,10 +8,22 @@ import pymongo
 
 @st.cache_resource
 def init_connection():
-    return pymongo.MongoClient("mongodb+srv://aramirezsu:Cbum2024@cluster0.gowlzlh.mongodb.net/?retryWrites=true&w=majority")
+    """
+    Establece y retorna una conexión a la base de datos MongoDB.
 
+    Returns:
+    pymongo.MongoClient: Cliente de MongoDB conectado al servidor especificado.
+    """
+    return pymongo.MongoClient(
+        "mongodb+srv://aramirezsu:Cbum2024@"
+        "cluster0.gowlzlh.mongodb.net/?retryWrites=true&w=majority"
+    )
+
+# Se inicializa la conexión a la base de datos 
+# llamando a la función init_connection().
 client = init_connection()
 
+# Se accede a la base de datos "scoregoals" a través del cliente de MongoDB.
 db = client.scoregoals
 
 def fetch_usuarios():
@@ -51,11 +62,7 @@ def get_emails_usuarios():
     for user in users:
         emails.append(user["key"])
 
-    # Mostrar los correos electrónicos en la interfaz de usuario de Streamlit
-
     return emails
-
-
 
 # Funcion que retorna los nombres de usuario de los usuarios registrados
 def get_usernames_usuarios():
@@ -136,14 +143,15 @@ def actualizar_datos_usuario(username, new_username, new_password):
     for user in users:
         if user["username"] == username:
             if new_username:
-                collection.update_one({"_id": user["_id"]}, {"$set": {"username": new_username}})
+                collection.update_one({"_id": user["_id"]}, {"$set":
+                                      {"username": new_username}})
             if new_password:
                 new_encrypted_password = Hasher([new_password]).generate()
-                collection.update_one({"_id": user["_id"]}, {"$set": {"password": new_encrypted_password[0]}})
+                collection.update_one({"_id": user["_id"]}, {"$set": 
+                 {"password": new_encrypted_password[0]}})
             return True
     return False
 
-# Manejo de posibles errores
  # Se almacenan los datos necesarios de la DB
 users = fetch_usuarios()
 emails = get_emails_usuarios()
