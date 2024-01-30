@@ -13,6 +13,11 @@ def init_connection():
 
 client = init_connection()
 
+@st.cache_data(ttl=600)
+def get_data():
+    db = client.mydb
+    items = db.usuarios.insert_one({"name"="cbum"})
+
 # Crear pie de pagina con los datos de contacto de los creadores
 footer = """
 <style>
