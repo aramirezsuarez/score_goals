@@ -168,6 +168,12 @@ Authenticator = stauth.Authenticate(
 # 3 valores los cuales atrapamos
 email, authentication_status, username = Authenticator.login()
 
+# Mostrar las credenciales en la interfaz de usuario
+st.write("Credenciales:")
+st.write(credentials)
+st.write("Resultado de login:")
+st.write(f"Email: {email}, Estado de autenticación: {authentication_status}, Nombre de usuario: {username}")
+
 # Comprobacion de la existencia del username dentro de la DB
 # y mensajes de advertencia en caso de un mal inicio de sesion
 if username:
