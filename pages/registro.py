@@ -14,22 +14,26 @@ def init_connection():
 
 client = init_connection()
 
+db = client.scoregoals
+
 
 @st.cache_data(ttl=600)
+def insertar_usuario(email, username, password):
+    # Agregar un nuevo usuario a la Base de Datos con la
+    # información proporcionada
+    db.users.insert_one({"key": email, "username": username, "password": password,
+            "jugadores": []})
 
-def get_data():
-    db = client.mydb
-    items = db.usuarios.insert_one({"name":"cbum"})
+# Formulario para ingresar la información del usuario
+email = st.text_input("Correo Electrónico")
+username = st.text_input("Nombre de Usuario")
+password = st.text_input("Contraseña", type="password")
 
-def main():
-    st.title("Ejemplo con botón y @st.cache_data")
+# Botón para ejecutar la función
+if st.button("Insertar Usuario"):
+    insertar_usuario(email, username, password)
+    st.success("Usuario insertado correctamente en la base de datos.")
 
-    if st.button("Ejecutar get_data()"):
-        result = get_data()
-        st.write(f"Función ejecutada. Resultado: {result}")
-
-if __name__ == "__main__":
-    main()
 
 # Crear pie de pagina con los datos de contacto de los creadores
 footer = """
