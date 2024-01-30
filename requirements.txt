@@ -4,3 +4,4 @@ streamlit-authenticator
 streamlit-extras
 deta
 streamlit-lottie
+streamlit.report_thread
