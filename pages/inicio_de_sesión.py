@@ -15,6 +15,22 @@ client = init_connection()
 
 db = client.scoregoals
 
+def fetch_usuarios():
+    """
+   Recupera y devuelve un diccionario con los usuarios
+   registrados en la Base de Datos.
+
+   Returns:
+   - dict: Un diccionario que contiene la información de los
+   usuarios registrados.
+   Cada clave es la dirección de correo electrónico única del usuario,
+   y cada valor es un diccionario con detalles como
+   "username", "age", "height", y "password".
+   """
+    # guardamos los datos de la DB en users y retornamos su contenido
+    users = db.users.find()
+    return users
+
 # Funcion que retorna los emails de los usuarios registrados
 def get_emails_usuarios():
     """
