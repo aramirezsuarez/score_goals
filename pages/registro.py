@@ -121,7 +121,7 @@ st.title("Registro")
 st.write("Debe aceptar los términos y condiciones antes de"
          "poder enviar el formulario")
 aceptar_terminos = st.checkbox("Acepto los [Términos y Condiciones]"
-"(https://github.com/lflunal/ppi_20/blob/main/Politica%20de%20Tratamiento%20de%20Datos.md)")
+"(https://github.com/aramirezsuarez/score_goals/blob/main/Politica%20de%20Tratamiento%20de%20Datos.md)")
 
 if aceptar_terminos:
     # Creacion del formulario
