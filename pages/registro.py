@@ -18,6 +18,16 @@ def get_data():
     db = client.mydb
     items = db.usuarios.insert_one({"name"="cbum"})
 
+def main():
+    st.title("Ejemplo con botón y @st.cache_data")
+
+    if st.button("Ejecutar get_data()"):
+        result = get_data()
+        st.write(f"Función ejecutada. Resultado: {result}")
+
+if __name__ == "__main__":
+    main()
+
 # Crear pie de pagina con los datos de contacto de los creadores
 footer = """
 <style>
