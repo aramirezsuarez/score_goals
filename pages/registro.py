@@ -64,12 +64,12 @@ def get_emails_usuarios():
     for user in users:
         emails.append(user["key"])
 
-    # Imprimir los correos electrónicos
-    print("Correos Electrónicos de Usuarios:", emails)
+    # Mostrar los correos electrónicos en la interfaz de usuario de Streamlit
+    st.write("Correos Electrónicos de Usuarios:", emails)
 
     return emails
 
-# Llamar a la función para imprimir los correos electrónicos
+# Llamar a la función para mostrar los correos electrónicos en la interfaz de usuario
 get_emails_usuarios()
 
 # Funcion que retorna los nombres de usuario de los usuarios registrados
