@@ -166,7 +166,7 @@ Authenticator = stauth.Authenticate(
 
 # La funcion login regresa una tupla con estos
 # 3 valores los cuales atrapamos
-email, authentication_status, username = Authenticator.login("Ingresar", "main")
+email, authentication_status, username = Authenticator.login()
 
 # Comprobacion de la existencia del username dentro de la DB
 # y mensajes de advertencia en caso de un mal inicio de sesion
