@@ -1,5 +1,5 @@
 streamlit
-SessionState
+session_state
 streamlit-authenticator
 streamlit-extras
 deta
