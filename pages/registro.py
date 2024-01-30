@@ -116,8 +116,12 @@ def validar_username(username):
 
 st.title("Registro")
 
-# Si se aceptan los términos y condiciones habilitar el registro
-aceptar_terminos = st.checkbox("Acepto los términos y condiciones")
+# Se define un checkbox en el que se deben aceptar los
+    # T&C antes de enviar un registro
+st.write("Debe aceptar los términos y condiciones antes de"
+         "poder enviar el formulario")
+aceptar_terminos = st.checkbox("Acepto los [Términos y Condiciones]"
+"(https://github.com/lflunal/ppi_20/blob/main/Politica%20de%20Tratamiento%20de%20Datos.md)")
 
 if aceptar_terminos:
     # Creacion del formulario
