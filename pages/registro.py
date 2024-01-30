@@ -43,6 +43,9 @@ def fetch_usuarios():
     users = db.fetch()
     return users.items
 
+users = db.users.find({},{"key": 1})
+print(users)
+
 # Funcion que retorna los emails de los usuarios registrados
 def get_emails_usuarios():
     """
