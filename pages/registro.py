@@ -16,7 +16,7 @@ client = init_connection()
 @st.cache_data(ttl=600)
 def get_data():
     db = client.mydb
-    items = db.usuarios.insert_one({"name"="cbum"})
+    items = db.usuarios.insert_one({"name":"cbum"})
 
 def main():
     st.title("Ejemplo con botón y @st.cache_data")
