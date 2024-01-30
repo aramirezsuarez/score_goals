@@ -156,11 +156,6 @@ selected_clubs_info = df_clubs[df_clubs["name"].isin(club_seleccionados)]
 st.write("Información de los clubes seleccionados:")
 st.write(selected_clubs_info)
 
-import streamlit as st
-import pandas as pd
-
-# Supongamos que df_players es tu DataFrame original
-
 # Crear un diccionario con la cantidad deseada de jugadores por posición
 posiciones_deseadas = {"Goalkeeper": 1, "Defender": 4, "Midfield": 4, "Attack": 3}
 
@@ -169,8 +164,9 @@ jugadores_seleccionados_por_posicion = {posicion: 0 for posicion in posiciones_d
 
 # Multiselect para seleccionar jugadores
 jugadores_seleccionados = st.multiselect(
-    "Selecciona el/los jugadores que quieras consultar",
-    df_players["name"]
+    "Selecciona el/los porteros",
+    df_players[df_players["position"] == "Goalkeeper"]["name"],
+    key="porteros"
 )
 
 # Filtrar el DataFrame para obtener las filas correspondientes a los jugadores seleccionados
