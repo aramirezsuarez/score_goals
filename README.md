@@ -31,7 +31,7 @@ Score Goals es una aplicación que proporciona información detallada sobre enfr
   
 ## Link de la aplicación
 
-[Score_Goals](https://scoregoals-dfj7duconampzhcfg5wpdv.streamlit.app/)
+[Score_Goals](https://scoregoals-qkhxsf7vipookksp6gem6d.streamlit.app/)
 
 ## Requisitos
 
@@ -40,7 +40,7 @@ Score Goals es una aplicación que proporciona información detallada sobre enfr
 
 ## Base de datos
 
-- [MongoDB](https://scoregoals-dfj7duconampzhcfg5wpdv.streamlit.app/)
+- [MongoDB](https://www.mongodb.com/es)
 
 
 ## Licencia
