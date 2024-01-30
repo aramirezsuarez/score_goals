@@ -236,6 +236,7 @@ footer = """
         position: fixed;
         left: 0;
         bottom: 0;
+        z-index: 10;
         width: 100%;
         background-color: rgb(14, 17, 23);
         color: black;
@@ -247,8 +248,8 @@ footer = """
 </style>
 <div class="footer">
     <p>App desarrollada por: <br />
-    Luis Fernando López Echeverri | Andres Felipe Ramirez Suarez <br />
-    Contactenos: <a href="#">lulopeze@unal.edu.co</a> | <a href="#">aramirezsu@unal.edu.co</a></p>
+    Andres Felipe Ramirez Suarez <br />
+    Contactenos: <a href="#">aramirezsu@unal.edu.co</a>
 </div>
 """
 st.markdown(footer,unsafe_allow_html=True)
