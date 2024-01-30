@@ -7,13 +7,16 @@ import pymongo
 
 # Initialize connection.
 # Uses st.cache_resource to only run once.
+
 @st.cache_resource
 def init_connection():
-    return pymongo.MongoClient(**st.secrets["mongo"])
+    return pymongo.MongoClient("mongodb+srv://st.secrets.db_username:st.secrets.db_pswd@st.secrets.cluster_name.gowlzlh.mongodb.net/?retryWrites=true&w=majority")
 
 client = init_connection()
 
+
 @st.cache_data(ttl=600)
+
 def get_data():
     db = client.mydb
     items = db.usuarios.insert_one({"name":"cbum"})
