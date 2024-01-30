@@ -1,14 +1,14 @@
 
 
 import streamlit as st
-#from SessionState import get
+from lib import SessionState
 # Función de inicio de sesión
 def login(username, password):
     return username == "testuser" and password == "testpassword"
 
 # Verificar el estado de la sesión
 def check_session_state():
-    session_state = get(username="", logged_in=False)
+    session_state = SessionState.get(username="", logged_in=False)
     return session_state
 
 # Página de inicio de sesión
