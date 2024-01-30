@@ -157,7 +157,7 @@ for index in range(len(emails)):
     credentials["usernames"][usernames[index]] = {
         "email":emails[index],
         "name": usernames[index],
-        "passwords": passwords[index]
+        "password": password[index]
     }
 
 # Creacion del autenticador
