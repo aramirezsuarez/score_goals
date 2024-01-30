@@ -25,6 +25,71 @@ def insertar_usuario(email, username, password):
     db.users.insert_one({"key": email, "username": username, "password": password,
             "jugadores": []})
 
+
+# Funcion que retorna los usuarios registrados
+def fetch_usuarios():
+    """
+    Obtiene un diccionario con los usuarios registrados desde la Base de Datos.
+
+    Returns:
+    - dict: Un diccionario que contiene información sobre los
+    usuarios registrados. Las claves del diccionario son las
+    identificaciones únicas de los usuarios.
+    Los valores son diccionarios que representan
+    la información detallada de cada usuario.
+
+    """
+    # Guardar los datos de la Base de Datos en 'users' y retornar su contenido
+    users = db.fetch()
+    return users.items
+
+# Funcion que retorna los emails de los usuarios registrados
+def get_emails_usuarios():
+    """
+    Obtiene una lista con los correos electrónicos de cada usuario
+    registrado en la Base de Datos.
+
+    Returns:
+    - list: Una lista que contiene los correos electrónicos de cada usuario.
+
+    """
+    # Guardar los datos de la Base de Datos en 'users'
+    users = db.fetch()
+
+    # Inicializar una lista para almacenar los correos electrónicos
+    emails = []
+
+    # Filtrar los correos electrónicos del diccionario de usuarios y
+    # agregarlos a la lista
+    for user in users.items:
+        emails.append(user["key"])
+
+    return emails
+
+# Funcion que retorna los nombres de usuario de los usuarios registrados
+def get_usernames_usuarios():
+    """
+    Obtiene una lista con los nombres de usuario de cada usuario
+    registrado en la Base de Datos.
+
+    Returns:
+    - list: Una lista que contiene los nombres de usuario de cada usuario.
+
+    """
+    # Guardar los datos de la Base de Datos en 'users'
+    users = db.fetch()
+
+    # Inicializar una lista para almacenar los nombres de usuario
+    usernames = []
+
+    # Filtrar los nombres de usuario del diccionario de usuarios y
+    # agregarlos a la lista
+    for user in users.items:
+        usernames.append(user["username"])
+
+    return usernames
+
+# Funcion que verifica si un email ingresado es valido
 def validar_email(email):
     """
     Verifica si el email ingresado es válido según patrones típicos.
