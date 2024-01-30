@@ -6,25 +6,50 @@ import re
 import pymongo
 from datetime import datetime
 
-# Initialize connection.
-# Uses st.cache_resource to only run once.
-
 @st.cache_resource
 def init_connection():
-    return pymongo.MongoClient("mongodb+srv://aramirezsu:Cbum2024@cluster0.gowlzlh.mongodb.net/?retryWrites=true&w=majority")
+    """
+    Establece y retorna una conexión a la base de datos MongoDB.
 
+    Returns:
+    pymongo.MongoClient: Cliente de MongoDB conectado al servidor especificado.
+    """
+    return pymongo.MongoClient(
+        "mongodb+srv://aramirezsu:"  
+        "Cbum2024@cluster0.gowlzlh.mongodb.net/"  
+        "?retryWrites=true&w=majority" 
+    )
+
+# Se inicializa la conexión a la base de datos 
+# llamando a la función init_connection().
 client = init_connection()
 
+# Se accede a la base de datos "scoregoals" a través del cliente de MongoDB.
 db = client.scoregoals
-
 
 @st.cache_data(ttl=600)
 def insertar_usuario(email, username, password):
-    # Agregar un nuevo usuario a la Base de Datos con la
-    # información proporcionada
-    db.users.insert_one({"key": email, "username": username, "password": password,
-            "jugadores": []})
+    """
+    Inserta un nuevo usuario en la base de datos.
 
+    Args:
+    email (str): Correo electrónico único del usuario.
+    username (str): Nombre de usuario del usuario.
+    password (str): Contraseña del usuario.
+
+    Returns:
+    None
+
+    Raises:
+    pymongo.errors.WriteError: Si hay un error al insertar 
+    el usuario en la base de datos.
+    """
+    db.users.insert_one({
+        "key": email,        #
+        "username": username,  
+        "password": password,  
+        "jugadores": []       
+    })
 
 # Funcion que retorna los emails de los usuarios registrados
 def get_emails_usuarios():
@@ -46,11 +71,7 @@ def get_emails_usuarios():
     for user in users:
         emails.append(user["key"])
 
-    # Mostrar los correos electrónicos en la interfaz de usuario de Streamlit
-
     return emails
-
-
 
 # Funcion que retorna los nombres de usuario de los usuarios registrados
 def get_usernames_usuarios():
@@ -112,16 +133,19 @@ def validar_username(username):
     # que es None si no hay coincidencia
     return bool(re.match("^[a-zA-Z0-9]*$", username))
 
-
-
+# Titulo de la pagina
 st.title("Registro")
-
 # Se define un checkbox en el que se deben aceptar los
-    # T&C antes de enviar un registro
+# T&C antes de enviar un registro
 st.write("Debe aceptar los términos y condiciones antes de"
          "poder enviar el formulario")
-aceptar_terminos = st.checkbox("Acepto los [Términos y Condiciones]"
-"(https://github.com/aramirezsuarez/score_goals/blob/main/Politica%20de%20Tratamiento%20de%20Datos.md)")
+aceptar_terminos = st.checkbox(
+    "Acepto los [Términos y Condiciones]"
+    "(https://github.com/aramirezsuarez/"
+    "score_goals/blob/main/Politica%20de%20Tratamiento%20de%20Datos.md)"
+)
+
+
 
 if aceptar_terminos:
     # Creacion del formulario
@@ -131,10 +155,10 @@ if aceptar_terminos:
 
         # Campos a ser llenados por el usuario
         email = st.text_input("Email", placeholder="Ingrese su Email")
-        username = st.text_input("Usuario", placeholder="Ingrese su nombre de usuario")
-        password = st.text_input("Contraseña", placeholder="Ingrese su contraseña", type="password")
-
-
+        username = st.text_input("Usuario", 
+                                 placeholder="Ingrese su nombre de usuario")
+        password = st.text_input("Contraseña", 
+                       placeholder="Ingrese su contraseña", type="password")
 
         # Boton de envio de datos de registro
         st.form_submit_button("Registrate")
@@ -151,7 +175,8 @@ if aceptar_terminos:
                     else:
                         st.warning("Nombre de usuario en uso")
                 else:
-                    st.warning("Nombre de usuario inválido (solo debe tener letras y números)")
+                    st.warning("Nombre de usuario inválido "
+                    "(solo debe tener letras y números)")
             else:
                 st.warning("El email ya está en uso")
         else:
@@ -159,9 +184,8 @@ if aceptar_terminos:
     else:
         st.warning("Debe rellenar todos los campos")
 else:
-    st.warning("Debes aceptar los términos y condiciones antes de poder registrarte")
-
-
+    st.warning("Debes aceptar los términos y condiciones "
+    "antes de poder registrarte")
 
 # Crear pie de pagina con los datos de contacto de los creadores
 footer = """
