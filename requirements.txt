@@ -1,4 +1,3 @@
-pymongo
 streamlit
 session_state
 streamlit-authenticator
@@ -6,3 +5,4 @@ streamlit-extras
 deta
 streamlit-lottie
 streamlit.report_thread
+pymongo
