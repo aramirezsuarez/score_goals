@@ -25,8 +25,45 @@ def insertar_usuario(email, username, password):
     db.users.insert_one({"key": email, "username": username, "password": password,
             "jugadores": []})
 
+def validar_email(email):
+    """
+    Verifica si el email ingresado es válido según patrones típicos.
 
-st.title("registro")
+    Args:
+    - email (str): La dirección de correo electrónico a validar.
+
+    Returns:
+    - bool: True si el email es válido, False de lo contrario.
+
+    """
+    # Patrones típicos de un email válido
+    pattern = "^[a-zA-Z0_9-]+@[a-zA-Z0-9-]+\.[a-z]{1,3}$"
+    pattern1 = "^[a-zA-Z0-9-]+@[a-zA-Z0-9-]+\.[a-z]{1,3}+\.[a-z]{1,3}$"
+
+    # Verifica si el email ingresado coincide con alguno de los
+    # patrones definidos
+    if re.match(pattern, email) or re.match(pattern1, email):
+        return True
+    return False
+
+def validar_username(username):
+    """
+    Verifica si el username ingresado es válido según un patrón típico.
+
+    Args:
+    - username (str): El nombre de usuario a validar.
+
+    Returns:
+    - bool: True si el username es válido, False de lo contrario.
+
+    """
+    # Utiliza directamente el resultado de re.match,
+    # que es None si no hay coincidencia
+    return bool(re.match("^[a-zA-Z0-9]*$", username))
+
+
+
+st.title("Registro")
 
 # Si se aceptan los términos y condiciones habilitar el registro
 aceptar_terminos = st.checkbox("Acepto los términos y condiciones")
@@ -95,6 +132,3 @@ footer = """
 </div>
 """
 st.markdown(footer,unsafe_allow_html=True)
-
-# Título de la aplicación
-st.title("Registro")
