@@ -38,6 +38,10 @@ Score Goals es una aplicación que proporciona información detallada sobre enfr
 - La aplicación requiere conexión a internet para cargar datos en tiempo real.
 - Se recomienda utilizar un navegador actualizado para la mejor experiencia.
 
+## Base de datos
+
+- [MongoDB](https://scoregoals-dfj7duconampzhcfg5wpdv.streamlit.app/)
+
 
 ## Licencia
 [GNU GPL V3](https://www.gnu.org/licenses/gpl-3.0.html)
