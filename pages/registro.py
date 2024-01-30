@@ -70,7 +70,7 @@ def get_usernames_usuarios():
 
     # Filtrar los nombres de usuario del diccionario de usuarios y
     # agregarlos a la lista
-    for user in users.items:
+    for user in users:
         usernames.append(user["username"])
 
     return usernames
