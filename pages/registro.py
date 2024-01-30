@@ -54,7 +54,8 @@ def get_emails_usuarios():
 
     """
     # Guardar los datos de la Base de Datos en 'users'
-    users = db.fetch()
+    users = db.users.find({},{"key": 1})
+    print(users)
 
     # Inicializar una lista para almacenar los correos electrónicos
     emails = []
