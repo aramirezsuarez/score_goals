@@ -1,4 +1,5 @@
 streamlit
+SessionState
 streamlit-authenticator
 streamlit-extras
 deta
