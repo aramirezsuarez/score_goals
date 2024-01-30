@@ -26,24 +26,6 @@ def insertar_usuario(email, username, password):
             "jugadores": []})
 
 
-# Funcion que retorna los usuarios registrados
-def fetch_usuarios():
-    """
-    Obtiene un diccionario con los usuarios registrados desde la Base de Datos.
-
-    Returns:
-    - dict: Un diccionario que contiene información sobre los
-    usuarios registrados. Las claves del diccionario son las
-    identificaciones únicas de los usuarios.
-    Los valores son diccionarios que representan
-    la información detallada de cada usuario.
-
-    """
-    # Guardar los datos de la Base de Datos en 'users' y retornar su contenido
-    users = db.fetch()
-    return users.items
-
-
 # Funcion que retorna los emails de los usuarios registrados
 def get_emails_usuarios():
     """
@@ -65,12 +47,10 @@ def get_emails_usuarios():
         emails.append(user["key"])
 
     # Mostrar los correos electrónicos en la interfaz de usuario de Streamlit
-    st.write("Correos Electrónicos de Usuarios:", emails)
 
     return emails
 
-# Llamar a la función para mostrar los correos electrónicos en la interfaz de usuario
-get_emails_usuarios()
+
 
 # Funcion que retorna los nombres de usuario de los usuarios registrados
 def get_usernames_usuarios():
@@ -83,7 +63,7 @@ def get_usernames_usuarios():
 
     """
     # Guardar los datos de la Base de Datos en 'users'
-    users = db.fetch()
+    users = db.users.find({}, {"username": 1})
 
     # Inicializar una lista para almacenar los nombres de usuario
     usernames = []
