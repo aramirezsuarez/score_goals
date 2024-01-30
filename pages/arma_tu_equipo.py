@@ -42,5 +42,5 @@ if st.session_state["authentication_status"]:
     st.write(jugadores_seleccionados_por_posicion)
 
 else:
-    st.warning("Si desea calcular sus resultados debe iniciar sesion")
+    st.warning("Si acceder a esta función iniciar sesion")
 
