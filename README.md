@@ -9,9 +9,10 @@ Score Goals es una aplicación que proporciona información detallada sobre enfr
 
 ### Secciones Adicionales
 
-1. **Juego Interactivo: Adivina el Jugador**
-   - En esta sección, se mostrará la foto de un jugador de fútbol, y tu tarea será ingresar el nombre completo del jugador para ganar el juego.
-
+1. **Juego Interactivo: Arma tu equipo**
+   - En esta sección, se podra armar tú equipo deseado, con las caracteristicas de 4 defensas, 3 mediocampistas y 3 delanteros.
+   - Para acceder a esta sección Necesitas iniciar sesión
+     
 2. **Simulación del Mundial 2022**
    - Experimenta una simulación del torneo mundial de fútbol 2022, donde se presentan las diferentes fases del torneo.
 
